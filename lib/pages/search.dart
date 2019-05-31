@@ -55,7 +55,6 @@ class SearchPage extends StatelessWidget {
           ),
         body: ListView(
           physics: BouncingScrollPhysics(),
-          controller: ,
           children: <Widget>[
             HomeBanner(),
             HomeMenu(),
