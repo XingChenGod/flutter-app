@@ -5,7 +5,18 @@ import '../components/search-components/home-menu.dart';
 import '../components/search-components/recommend-music.dart';
 import '../components/search-components/tab-music.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _SearchPage();
+  }
+  
+}
+
+class _SearchPage extends State<SearchPage> {
+  ScrollController _scrollController = new ScrollController();
+
   final _searchTitle = '大家都在搜 遇到';
   @override
   Widget build(BuildContext context) {
