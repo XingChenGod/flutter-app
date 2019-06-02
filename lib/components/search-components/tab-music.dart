@@ -20,11 +20,6 @@ class _TabMusicState extends State<TabMusic> {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(color: Colors.grey, width: 0.5)
-          )
-        ),
         child: Column(children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,8 +35,8 @@ class _TabMusicState extends State<TabMusic> {
                           '新碟',
                           style: _currentIndex == 0
                               ? TextStyle(
-                                  fontSize: 18.0, fontWeight: FontWeight.w300)
-                              : TextStyle(fontSize: 12.0, color: Colors.grey),
+                                  fontSize: 18.0, fontWeight: FontWeight.w500)
+                              : TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w100),
                         ),
                       ),
                       onTapUp: (details) {
@@ -61,14 +56,15 @@ class _TabMusicState extends State<TabMusic> {
                       child: Container(
                         child: Text(
                           '新歌',
-                          style: _currentIndex == 1 ? TextStyle(
-                                  fontSize: 18.0, fontWeight: FontWeight.w300)
-                              : TextStyle(fontSize: 12.0, color: Colors.grey),
+                          style: _currentIndex == 1
+                              ? TextStyle(
+                                  fontSize: 18.0, fontWeight: FontWeight.w500)
+                              : TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w100),
                         ),
                       ),
                       onTapUp: (details) {
                         setState(() {
-                         _currentIndex = 1; 
+                          _currentIndex = 1;
                         });
                       },
                     )
@@ -96,25 +92,31 @@ class _TabMusicState extends State<TabMusic> {
             ],
           ),
           Container(
+            height: 145,
             margin: EdgeInsets.only(top: 10.0),
-            child: Wrap(
-              spacing: 10.0,
-              children: _getTabDatas().map((item) {
+            child: GridView.builder(
+              itemCount: _getTabDatas().length,
+              physics: ClampingScrollPhysics(),
+              controller: ScrollController(initialScrollOffset: 0.0, keepScrollOffset: false),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 10.0,
+                childAspectRatio: 0.6
+              ),
+              itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  height: 180.0,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(6.0),
                         child: Image.network(
-                          item['imgUrl'],
+                          _getTabDatas()[index]['imgUrl'],
                           fit: BoxFit.cover
                         ),
+                        borderRadius: BorderRadius.circular(4.0),
                       ),
                       Text(
-                        item['title'],
+                        _getTabDatas()[index]['title'],
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         style: TextStyle(
@@ -122,7 +124,7 @@ class _TabMusicState extends State<TabMusic> {
                         ),
                       ),
                       Text(
-                        item['subTitle'],
+                        _getTabDatas()[index]['subTitle'],
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         style: TextStyle(
@@ -133,9 +135,48 @@ class _TabMusicState extends State<TabMusic> {
                     ],
                   ),
                 );
-              }).toList(),
+              },
             ),
           )
         ]));
   }
 }
+
+// Wrap(
+//               spacing: 10.0,
+//               children: _getTabDatas().map((item) {
+//                 return Container(
+//                   height: 180.0,
+//                   child: Column(
+//                     mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: <Widget>[
+//                       ClipRRect(
+//                         borderRadius: BorderRadius.circular(6.0),
+//                         child: Image.network(
+//                           item['imgUrl'],
+//                           fit: BoxFit.cover
+//                         ),
+//                       ),
+//                       Text(
+//                         item['title'],
+//                         overflow: TextOverflow.ellipsis,
+//                         maxLines: 1,
+//                         style: TextStyle(
+//                           fontSize: 16.0
+//                         ),
+//                       ),
+//                       Text(
+//                         item['subTitle'],
+//                         overflow: TextOverflow.ellipsis,
+//                         maxLines: 1,
+//                         style: TextStyle(
+//                           fontSize: 13.0,
+//                           color: Colors.grey
+//                         )
+//                       )
+//                     ],
+//                   ),
+//                 );
+//               }).toList(),
+//             ),

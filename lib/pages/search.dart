@@ -17,6 +17,18 @@ class SearchPage extends StatefulWidget {
 class _SearchPage extends State<SearchPage> {
   ScrollController _scrollController = new ScrollController();
 
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      print(_scrollController.offset);
+    });
+  }
+
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   final _searchTitle = '大家都在搜 遇到';
   @override
   Widget build(BuildContext context) {
@@ -65,12 +77,47 @@ class _SearchPage extends State<SearchPage> {
                   )
           ),
         body: ListView(
+          controller: _scrollController,
           physics: BouncingScrollPhysics(),
           children: <Widget>[
             HomeBanner(),
             HomeMenu(),
             RecommendMusic(),
-            TabMusic()
+            TabMusic(),
+            Container(
+              color: Color.fromRGBO(240, 240, 250, 1),
+              height: 4.0,
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(16.0, 10, 16.0, 10),
+              decoration: BoxDecoration(
+                border: Border(bottom: BorderSide(color: Color.fromRGBO(200, 200, 200, 1), width: 0.4))
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    '云村精选',
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w500,
+                    )
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      width: 96.0,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.update, size: 14.0,),
+                          Text('获取最新内容', style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w500))
+                        ],
+                      ),
+                    ),
+                    onTapUp: null,
+                  )
+                ],
+              ),
+            )
           ],
         )
       );

@@ -9,7 +9,7 @@ class HomeBanner extends StatelessWidget {
     // TODO: implement build
     return Container(
       height: 180.0,
-      margin: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       child: Swiper(
        itemBuilder: (BuildContext context, int index) {
               return Container(
