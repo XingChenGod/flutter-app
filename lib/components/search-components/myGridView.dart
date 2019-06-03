@@ -67,40 +67,36 @@ class MyGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 10.0,
-      runSpacing: 10.0,
-      children: listDatas.map((item) {
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        mainAxisSpacing: 5.0,
+        crossAxisSpacing: 10.0,
+        childAspectRatio: 0.7
+      ),
+      physics: ClampingScrollPhysics(),
+      itemBuilder: (BuildContext context, int index) {
         return Container(
-          width: 130.0,
-          height: 180.0,
           child: Stack(
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  // Container(
-                  //   height: 100,
-                  //   decoration: BoxDecoration(
-                  //     borderRadius: BorderRadius.all(
-                  //       Radius.circular(4.0)
-                  //     ),
-                  //     image: DecorationImage(
-                  //       image: NetworkImage(
-                  //         item['imgUrl']
-                  //       ),
-                  //       fit: BoxFit.cover
-                  //     )
-                  //   ),
-                  // ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(6.0),
-                    child: Image.network(
-                      item['imgUrl'],
-                      fit: BoxFit.cover
+                  Container(
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(4.0)
+                      ),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          listDatas[index]['imgUrl']
+                        ),
+                        fit: BoxFit.cover
+                      )
                     ),
                   ),
                   Text(
-                    item['text'],
+                    listDatas[index]['text'],
                     textAlign: TextAlign.left,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -117,7 +113,7 @@ class MyGridView extends StatelessWidget {
                       size: 18.0,
                     ),
                     Text(
-                      '${item['count']}万',
+                      '${listDatas[index]['count']}万',
                       style: TextStyle(
                         color: Color.fromRGBO(255, 255, 255, 1),
                         fontSize: 12.0
@@ -129,40 +125,46 @@ class MyGridView extends StatelessWidget {
             ],
           ),
         );
-      }).toList(),
+      },
+      itemCount: listDatas.length,
     );
   }
 }
 
-// GridView.builder(
-//       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//         crossAxisCount: 3,
-//         mainAxisSpacing: 5.0,
-//         crossAxisSpacing: 10.0,
-//         childAspectRatio: 0.9
-//       ),
-//       itemBuilder: (BuildContext context, int index) {
+// Wrap(
+//       spacing: 10.0,
+//       runSpacing: 10.0,
+//       children: listDatas.map((item) {
 //         return Container(
+//           width: 130.0,
+//           height: 180.0,
 //           child: Stack(
 //             children: <Widget>[
 //               Column(
 //                 children: <Widget>[
-//                   Container(
-//                     height: 100,
-//                     decoration: BoxDecoration(
-//                       borderRadius: BorderRadius.all(
-//                         Radius.circular(4.0)
-//                       ),
-//                       image: DecorationImage(
-//                         image: NetworkImage(
-//                           listDatas[index]['imgUrl']
-//                         ),
-//                         fit: BoxFit.cover
-//                       )
+//                   // Container(
+//                   //   height: 100,
+//                   //   decoration: BoxDecoration(
+//                   //     borderRadius: BorderRadius.all(
+//                   //       Radius.circular(4.0)
+//                   //     ),
+//                   //     image: DecorationImage(
+//                   //       image: NetworkImage(
+//                   //         item['imgUrl']
+//                   //       ),
+//                   //       fit: BoxFit.cover
+//                   //     )
+//                   //   ),
+//                   // ),
+//                   ClipRRect(
+//                     borderRadius: BorderRadius.circular(6.0),
+//                     child: Image.network(
+//                       item['imgUrl'],
+//                       fit: BoxFit.cover
 //                     ),
 //                   ),
 //                   Text(
-//                     listDatas[index]['text'],
+//                     item['text'],
 //                     textAlign: TextAlign.left,
 //                     maxLines: 2,
 //                     overflow: TextOverflow.ellipsis,
@@ -179,7 +181,7 @@ class MyGridView extends StatelessWidget {
 //                       size: 18.0,
 //                     ),
 //                     Text(
-//                       '${listDatas[index]['count']}万',
+//                       '${item['count']}万',
 //                       style: TextStyle(
 //                         color: Color.fromRGBO(255, 255, 255, 1),
 //                         fontSize: 12.0
@@ -191,6 +193,6 @@ class MyGridView extends StatelessWidget {
 //             ],
 //           ),
 //         );
-//       },
-//       itemCount: listDatas.length,
+//       }).toList(),
 //     );
+

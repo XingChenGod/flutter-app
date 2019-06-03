@@ -1,0 +1,19 @@
+dependencies: \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Runner/main.m \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Modules/module.modulemap \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterTexture.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterPlugin.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterMacros.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterEngine.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterDartProject.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterBinaryMessenger.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterViewController.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterPluginAppLifeCycleDelegate.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterPlatformViews.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterHeadlessDartRunner.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterCodecs.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterChannels.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterCallbackCache.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/FlutterAppDelegate.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Flutter/Flutter.framework/Headers/Flutter.h \
+  /Users/ganliuming/Desktop/app-flutter/flutter-app/ios/Runner/AppDelegate.h
