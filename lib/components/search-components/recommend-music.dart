@@ -31,7 +31,7 @@ class _RecommendMusicState extends State<RecommendMusic> {
         children: <Widget>[
           CardHeader(rightLabels: _rightLabels, leftLabels: _leftLabels),
           Container(
-            height: 320.0,
+            height: 360.0,
             margin: EdgeInsets.only(top: 10.0),
             child: MyGridView(listDatas: recommends),
           )
